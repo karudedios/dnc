@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import { Address } from '../Address/index';
 
 const phoneTransformer = {
   type: String,
@@ -20,6 +21,11 @@ const UserSchema = new Schema({
   profilePic: String,
   description: String,
   rating: Number,
+  address: {
+    type: Schema.ObjectId,
+    require: true,
+    ref: 'Address'
+  },
   phone1: phoneTransformer,
   phone2: phoneTransformer,
   minpph: Number,
@@ -34,5 +40,10 @@ UserSchema
   .get(function() {
     return `${this.firstName} ${this.lastName}`;
   });
+
+UserSchema.pre('save', function() {
+  Object.assign(this, { address : this.address || new Address() });
+  return this.address.save instanceof Function ? this.address.save(next) : next();
+});
 
 export default mongoose.model('User', UserSchema);
