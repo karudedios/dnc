@@ -5,8 +5,8 @@ const phoneTransformer = {
   type: String,
   set: (phone) => {
     const simplePhone = phone.replace(/[^0-9]/g, '');
-    const areaCode = phone.slice(0, 3);
-    const phoneNumber = phone.slice(3);
+    const areaCode = simplePhone.slice(0, 3);
+    const phoneNumber = simplePhone.slice(3);
 
     return `(${areaCode}) ${phoneNumber.replace(/(.{3})/, ($1) => `${$1}-`)}`
   }
