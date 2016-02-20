@@ -13,14 +13,14 @@ angular.module('mainApp', ['ui.router'])
       })
       .state('landing.index', {
         url: '',
-        template: "<h2> This is index </h2>"
+        templateUrl: "/app/views/default.html"
       })
-      .state('landing.login', {
-        url: 'login/',
-        template: "<h2> This is login </h2>"
+      .state('landing.auth.login', {
+        url: 'auth/login/',
+        templateUrl: "/app/views/user/login.html"
       })
-      .state('landing.signup', {
-        url: 'signup/',
-        template: "<h2> This is signup </h2>"
+      .state('landing.auth.signup', {
+        url: 'auth/signup/',
+        templateUrl: "/app/views/user/signup.html"
       });
   }]);
