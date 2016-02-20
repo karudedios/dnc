@@ -22,5 +22,11 @@ angular.module('mainApp', ['ui.router'])
       .state('landing.signup', {
         url: 'signup/',
         templateUrl: '/app/views/user/signup.html'
+      })
+      .state('authenticated', {
+          url: '/main',
+          abstract: true,
+          controller: 'AppController',
+          templateUrl: '/app/views/user/default.html'
       });
   }]);
