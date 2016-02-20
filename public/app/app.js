@@ -25,8 +25,6 @@ angular.module('mainApp', ['ui.router'])
       })
       .state('authenticated', {
           url: '/main',
-          abstract: true,
-          controller: 'AppController',
           templateUrl: '/app/views/user/default.html'
       });
   }]);
