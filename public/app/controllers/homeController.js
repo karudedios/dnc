@@ -1,13 +1,14 @@
-var app = angular.module('mainApp');
+angular.module('mainApp')
+  .controller('HomeController', function($scope, $state) {
+    $scope.navigation = [
+      { name: 'Home', route: 'landing.index' },
+      { name: 'Login', route: 'landing.login' },
+      { name: 'Signup', route: 'landing.signup'}
+    ];
 
-app.controller('HomeController', funtion(){
-    this.active = 0;
-    
-    this.setActive = function(_active){
-        this.active = _active;
-    }
-    
-    this.isActive = function(_active){
-        this.active === _active;
-    }
+    $scope.current = $state.current.name;
+
+    $scope.$on('$stateChangeSuccess', function(evt, to) {
+      $scope.current = to.name;
+    });
 });

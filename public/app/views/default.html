@@ -1,0 +1,33 @@
+<div class="site-wrapper">
+
+  <div class="site-wrapper-inner">
+
+    <div class="cover-container">
+
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">DNC</h3>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li data-ng-class="{ 'active': current === nav.route }" data-ng-repeat="nav in navigation">
+                <a ui-sref="{{::nav.route}}" data-ng-bind="::nav.name"></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <section ui-view>
+          
+      </section>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <p>All rights reserved for <a href="/">DNC</a></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
