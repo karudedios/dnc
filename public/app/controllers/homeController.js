@@ -2,8 +2,8 @@ angular.module('mainApp')
   .controller('HomeController', function($scope, $state) {
     $scope.navigation = [
       { name: 'Home', route: 'landing.index' },
-      { name: 'Login', route: 'landing.auth.login' },
-      { name: 'Signup', route: 'landing.auth.signup'}
+      { name: 'Login', route: 'landing.login' },
+      { name: 'Signup', route: 'landing.signup'}
     ];
 
     $scope.current = $state.current.name;
