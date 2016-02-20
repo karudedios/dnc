@@ -1,0 +1,20 @@
+{
+  "name": "hacksummit-drteam",
+  "description": "N/A",
+  "main": "server.js",
+  "license": "BSD-2-Clause",
+  "homepage": "https://github.com/karudedios/dnc",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "socket-io-client": "^1.4.5"
+  }
+}
