@@ -1,4 +1,4 @@
-import { Schema, Model } from 'mongoose';
+import { Schema, model as Model } from 'mongoose';
 import Request from '../request/index';
 
 const NotificationSchema = new Schema({

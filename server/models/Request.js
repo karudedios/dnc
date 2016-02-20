@@ -1,4 +1,4 @@
-import { Schema, Model } from 'mongose';
+import { Schema, model as Model } from 'mongose';
 import User from '../user/index';
 
 const RequestSchema = new Schema({

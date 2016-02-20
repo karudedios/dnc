@@ -1,4 +1,4 @@
-import { Schema, Model } from 'mongoose';
+import { Schema, model as Model } from 'mongoose';
 
 const PermissionSchema = new Schema({
   name: String,

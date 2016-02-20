@@ -1,4 +1,4 @@
-import { Schema, Model } from 'mongose';
+import { Schema, model as Model } from 'mongose';
 
 const SkillSchema = new Schema({
     name: String
