@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import { Schema, model as Model } from 'mongoose';
 
 const AddressSchema = new Schema({
   street: String,
@@ -10,4 +10,4 @@ const AddressSchema = new Schema({
   line2: String
 });
 
-export default mongoose.model('Address', AddressSchema);
+export default Model('Address', AddressSchema);
