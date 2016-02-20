@@ -9,8 +9,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "nodemon": "~1.9.0",
-    "jspm": "~0.16.29"
+    "nodemon": "~1.9.0"
   },
   "dependencies": {
     "express": "~4.13.4",
