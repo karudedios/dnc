@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { Address } from './Address';
+import Address from './Address';
 
 const phoneTransformer = {
   type: String,
@@ -41,7 +41,7 @@ UserSchema
     return `${this.firstName} ${this.lastName}`;
   });
 
-UserSchema.pre('save', function() {
+UserSchema.pre('save', function(next) {
   Object.assign(this, { address : this.address || new Address() });
   return this.address.save instanceof Function ? this.address.save(next) : next();
 });

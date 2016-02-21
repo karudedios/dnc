@@ -9,14 +9,6 @@ var template = require('gulp-template');
 var pathFromBase = path.join.bind(null, __dirname);
 var pathFromServer = pathFromBase.bind(null, 'server');
 
-var toTitleCase = function(str) { return ([str[0].toUpperCase()].concat(str.slice(1)).join('')) };
-
-gulp.task('make-apis', function() {
-  var destination = pathFromServer("api");
-  var generator = pathFromServer('generators', 'api', '{{name}}.routes.js');
-  return generateFromModels(destination, generator);
-});
-
 var generateFromModels = function(destination, fromGenerator) {
   var force = 'force' in argv;
   var start = pathFromServer("models");
@@ -41,6 +33,12 @@ var generateFromModels = function(destination, fromGenerator) {
       }
     }));
 }
+
+gulp.task('make-apis', function() {
+  var destination = pathFromServer("api");
+  var generator = pathFromServer('generators', 'api', '{{name}}.api.js');
+  return generateFromModels(destination, generator);
+});
 
 gulp.task('make-services', function() {
   var destination = pathFromServer("services");
