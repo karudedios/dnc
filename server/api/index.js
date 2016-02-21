@@ -1,19 +1,21 @@
 import { Router } from 'express';
-import AddressRoutes from './Address.routes';
-import ContractorRequestRoutes from './ContractorRequest.routes';
-import MessageRoutes from './Message.routes';
-import NotificationRoutes from './Notification.routes';
-import PermissionRoutes from './Permission.routes';
-import RequestRoutes from './Request.routes';
-import SkillRoutes from './Skill.routes';
-import UserRoutes from './User.routes';
+import AddressApi from './Address.api';
+import AuthApi from './Auth.api';
+import ContractorRequestApi from './ContractorRequest.api';
+import MessageApi from './Message.api';
+import NotificationApi from './Notification.api';
+import PermissionApi from './Permission.api';
+import RequestApi from './Request.api';
+import SkillApi from './Skill.api';
+import UserApi from './User.api';
 
 export default Router()
-	.use('/address', AddressRoutes)
-	.use('/contractorrequest', ContractorRequestRoutes)
-	.use('/message', MessageRoutes)
-	.use('/notification', NotificationRoutes)
-	.use('/permission', PermissionRoutes)
-	.use('/request', RequestRoutes)
-	.use('/skill', SkillRoutes)
-	.use('/user', UserRoutes);
+	.use('/address', AddressApi)
+	.use('/auth', AuthApi)
+	.use('/contractorrequest', ContractorRequestApi)
+	.use('/message', MessageApi)
+	.use('/notification', NotificationApi)
+	.use('/permission', PermissionApi)
+	.use('/request', RequestApi)
+	.use('/skill', SkillApi)
+	.use('/user', UserApi);

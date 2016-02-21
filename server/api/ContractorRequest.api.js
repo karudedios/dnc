@@ -1,9 +1,6 @@
 import { Router } from 'express';
+import handlePromise from '../utils/handlePromise';
 import service from '../services/ContractorRequest.service';
-
-const handlePromise = (req, res, promise) => promise
-  .then(res.json.bind(res))
-  .catch((f) => res.send(...f)); 
 
 export default Router()
   .get('/', (req, res) =>

@@ -1,9 +1,6 @@
 import { Router } from 'express';
-import service from '../services/Permission.service';
-
-const handlePromise = (req, res, promise) => promise
-  .then(res.json.bind(res))
-  .catch((f) => res.send(...f)); 
+import handlePromise from '../utils/handlePromise';
+import service from '../services/Request.service';
 
 export default Router()
   .get('/', (req, res) =>
