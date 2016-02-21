@@ -15,11 +15,11 @@ angular.module('mainApp', ['ui.router'])
         url: '',
         templateUrl: '/app/views/home.html'
       })
-      .state('landing.login', {
-        url: 'login/',
+      .state('landing.singin', {
+        url: 'singin/',
         controller: 'UserController',
         controllerAs: 'userCtrl',
-        templateUrl: '/app/views/user/login.html'
+        templateUrl: '/app/views/user/singin.html'
       })
       .state('landing.signup', {
         url: 'signup/',
