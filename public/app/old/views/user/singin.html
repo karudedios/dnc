@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/app/styles/form-signin.css" type="text/css" media="all" />
+
+<form class="form-signin css-form" name="form" novalidate ng-submit="userCtrl.singin(user)">
+    <h2 class="form-signin-heading"> Please Sign In </h2>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" ng-model="user.email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus />
+    
+    <label for="inputPassword" class="sr-only"> Password </label>
+    <input type="password" id="inputPassword" ng-model="user.password" class="form-control" placeholder="Password" required />
+    
+    <div class="checkbox">
+        <label for="chkUser">
+            <input id="chkUser" type="checkbox" value="remember-me" ng-model="user.remember"> Remember me 
+        </label>
+    </div>
+    
+    <span ng-show="userCtrl.errorMessage" ng-bind="userCtrl.errorMessage"></span>
+    
+    <button class="btn btn-lg btn-primary btn-block" ng-disabled="form.$invalid" type="submit">Sign in</button>
+</form>

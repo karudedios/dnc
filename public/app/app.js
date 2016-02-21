@@ -5,28 +5,6 @@ angular.module('mainApp', ['ui.router'])
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('landing', {
-        url: '/',
-        abstract: true,
-        controller: 'HomeController',
-        templateUrl: '/app/views/default.html'
-      })
-      .state('landing.index', {
-        url: '',
-        templateUrl: '/app/views/home.html'
-      })
-      .state('landing.singin', {
-        url: 'singin/',
-        controller: 'UserController',
-        controllerAs: 'userCtrl',
-        templateUrl: '/app/views/user/singin.html'
-      })
-      .state('landing.signup', {
-        url: 'signup/',
-        controller: 'UserController',
-        controllerAs: 'userCtrl',
-        templateUrl: '/app/views/user/signup.html'
-      })
       .state('authenticated', {
           abstract:true,
           url: '/main',

@@ -1,5 +1,5 @@
 angular.module('mainApp')
-  .controller('HomeController', function($scope, $state) {
+  .controller('LandingCtrl', function($scope, $state) {
     $scope.navigation = [
       { name: 'Home', route: 'landing.index' },
       { name: 'Sing In', route: 'landing.singin' },
