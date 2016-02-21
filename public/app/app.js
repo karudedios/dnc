@@ -49,7 +49,7 @@ angular.module('mainApp', ['ui.router'])
       })
       .state('authenticated.messages', {
           url: '/messages',
-          templateUrl: '/app/views/user/messages.html'
+          templateUrl: '/app/views/message/index.html'
       }).state('authenticated.profile', {
           url: '/profile',
           templateUrl: '/app/views/user/profile.html'
