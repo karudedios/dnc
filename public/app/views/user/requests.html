@@ -1,12 +1,35 @@
 <div>
 
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-inline">
+    <div class="form-group">
+        <input type="text" class="form-control" id="searchKey" placeholder="Enter criteria" ng-model="search.criteria">
+    </div>
+    <div class="form-group">
+        <select name="rating" id="rating" ng-options="stars for stars in [5,4,3,2,1]" ng-model="search.rating" class="form-control">
+            <option value="">Select a rating</option>
+        </select>
+    </div>
+    <div class="input-group  col-xs-2">
+      <div class="input-group-addon">$</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="From">
+    </div>
+    <div class="input-group  col-xs-2">
+      <div class="input-group-addon">$</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="To">
+    </div>
+    <button type="submit" class="btn btn-success btn-small">Search</button>
+    </form>
+  </div>
+</div>
+
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li data-ng-class="{ 'active': current === nav.route }" data-ng-repeat="nav in requests" role="presentation">
     <a ui-sref="{{::nav.route}}" > {{nav.name}} </a>
     </li>
   </ul>
-
   <!-- Tab panes -->
   <div class="tab-content" ui-view>
     
