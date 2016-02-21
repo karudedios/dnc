@@ -1,4 +1,4 @@
-import { Schema, model as Model} from 'mongoose';
+import { Schema, model } from 'mongoose';
 import Request from '../request/index';
 
 const ContractorRequestSchema = new Schema({
@@ -23,4 +23,4 @@ ContractorRequestSchema.pre('save', function(next) {
     return this.request.save instanceof Function ? this.request.save(next) : next();
 });
 
-export default Model("ContractorRequest", ContractorRequestSchema);
+export default model("ContractorRequest", ContractorRequestSchema);

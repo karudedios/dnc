@@ -1,8 +1,8 @@
-import { Schema, model as Model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const PermissionSchema = new Schema({
   name: String,
   description: String
 });
 
-export default Model('Permission', PermissionSchema);
+export default model('Permission', PermissionSchema);

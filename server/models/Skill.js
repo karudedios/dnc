@@ -1,7 +1,7 @@
-import { Schema, model as Model } from 'mongose';
+import { Schema, model } from 'mongose';
 
 const SkillSchema = new Schema({
     name: String
 });
 
-export default Model('Skill', SkillSchema);
+export default model('Skill', SkillSchema);

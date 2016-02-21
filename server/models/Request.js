@@ -1,4 +1,4 @@
-import { Schema, model as Model } from 'mongose';
+import { Schema, model } from 'mongose';
 import User from '../user/index';
 
 const RequestSchema = new Schema({
@@ -19,4 +19,4 @@ RequestSchema.pre('save', function(next) {
     return this.client.save instanceof Function ? this.client.save(next) : next();
 });
 
-export default Model('Request', RequestSchema);
+export default model('Request', RequestSchema);
