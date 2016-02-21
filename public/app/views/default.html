@@ -1,10 +1,15 @@
-  <div class="site-wrapper-inner">
+  <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  <div class="site-wrapper">
+      <div class="site-wrapper-inner">
 
     <div class="cover-container">
 
       <div class="masthead clearfix">
         <div class="inner">
-          <h3 class="masthead-brand">DNC</h3>
+          <h3 class="masthead-brand">
+              <a ui-sref="landing.index">DNC</a>
+          </h3>
           <nav>
             <ul class="nav masthead-nav">
               <li data-ng-class="{ 'active': current === nav.route }" data-ng-repeat="nav in navigation">
@@ -27,4 +32,5 @@
 
     </div>
 
+  </div>
   </div>

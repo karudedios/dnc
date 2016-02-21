@@ -1,25 +1,17 @@
 <link rel="stylesheet" href="/app/styles/main.css">
 
 <div class="container">
-     <div class="header clearfix">
+      <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+            <li data-ng-class="{ 'active': current.indexOf(nav.route) > -1 }" data-ng-repeat="nav in authenticatedNav">
+                <a ui-sref="{{::nav.route}}" > {{nav.name}} <span ng-show="nav.name === 'Requests'" class="badge">4</span></a>
+              </li>
           </ul>
         </nav>
         <h3 class="text-muted">DNC</h3>
       </div>
 
-      <section >
+      <div class="container" ui-view>
           
-      </section>
-
-      <div class="mastfoot">
-        <div class="inner">
-          <p>All rights reserved for <a href="/">DNC</a></p>
-        </div>
       </div>
-
-    </div>

@@ -1,0 +1,15 @@
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li data-ng-class="{ 'active': current === nav.route }" data-ng-repeat="nav in requests" role="presentation">
+    <a ui-sref="{{::nav.route}}" > {{nav.name}} </a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content" ui-view>
+    
+  </div>
+
+</div>
