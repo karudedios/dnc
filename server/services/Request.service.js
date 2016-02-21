@@ -1,5 +1,6 @@
 import Querier from 'querier.js'
 import Model from '../models/Request';
+import HttpStatusModel from '../utils/httpStatusModel';
 import promisedCallback from '../utils/promisedCallback';
 
 const boundPromisedCallback = promisedCallback.bind(null, Model);
@@ -9,7 +10,7 @@ export default class RequestService {
   static single(query) {
     return Querier
       .append({ as: 'model', from: boundPromisedCallback('findOne', query), where: [
-        [() => [404, "Request not found"], isTruthy]
+        [() => new HttpStatusModel(404, "Request not found"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
@@ -25,7 +26,7 @@ export default class RequestService {
   static where(query) {
     return Querier
       .append({ as: 'models', from: boundPromisedCallback('find', query), where: [
-        [() => [404, "No Requests Found"], models => models.length > 0]
+        [() => new HttpStatusModel(404, "Requests not found"), models => models.length > 0]
       ]})
       .select(({ models }) => models)
   }
@@ -33,7 +34,7 @@ export default class RequestService {
   static save(model) {
     return Querier
       .append({ as: 'model', from: promisedCallback(new Model(model), 'save'), where: [
-        [() => [500, "Could not create the Request"], isTruthy]
+        [() => new HttpStatusModel(500, "Could not create the Request"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
@@ -41,7 +42,7 @@ export default class RequestService {
   static update(_id, updated) {
     return Querier
       .append({ as: 'model', from: boundPromisedCallback('findByIdAndUpdate', _id, updated, { multi: true }), where: [
-        [() => [404, "No Request with the ID specified"], isTruthy]
+        [() => new HttpStatusModel(404, "No Request found with the ID specified"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
@@ -49,7 +50,7 @@ export default class RequestService {
   static delete(_id) {
     return Querier
       .append({ as: 'model', from: boundPromisedCallback('findByIdAndRemove', _id), where: [
-        [() => [404, "Not Request with the ID specified"], isTruthy]
+        [() => new HttpStatusModel(404, "Not Request found with the ID specified"), isTruthy]
       ]})
       .select(({ model }) => model)
   }

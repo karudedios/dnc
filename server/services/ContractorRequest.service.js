@@ -1,5 +1,6 @@
 import Querier from 'querier.js'
 import Model from '../models/ContractorRequest';
+import HttpStatusModel from '../utils/httpStatusModel';
 import promisedCallback from '../utils/promisedCallback';
 
 const boundPromisedCallback = promisedCallback.bind(null, Model);
@@ -9,7 +10,7 @@ export default class ContractorRequestService {
   static single(query) {
     return Querier
       .append({ as: 'model', from: boundPromisedCallback('findOne', query), where: [
-        [() => [404, "ContractorRequest not found"], isTruthy]
+        [() => new HttpStatusModel(404, "ContractorRequest not found"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
@@ -25,7 +26,7 @@ export default class ContractorRequestService {
   static where(query) {
     return Querier
       .append({ as: 'models', from: boundPromisedCallback('find', query), where: [
-        [() => [404, "No ContractorRequests Found"], models => models.length > 0]
+        [() => new HttpStatusModel(404, "ContractorRequests not found"), models => models.length > 0]
       ]})
       .select(({ models }) => models)
   }
@@ -33,7 +34,7 @@ export default class ContractorRequestService {
   static save(model) {
     return Querier
       .append({ as: 'model', from: promisedCallback(new Model(model), 'save'), where: [
-        [() => [500, "Could not create the ContractorRequest"], isTruthy]
+        [() => new HttpStatusModel(500, "Could not create the ContractorRequest"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
@@ -41,7 +42,7 @@ export default class ContractorRequestService {
   static update(_id, updated) {
     return Querier
       .append({ as: 'model', from: boundPromisedCallback('findByIdAndUpdate', _id, updated, { multi: true }), where: [
-        [() => [404, "No ContractorRequest with the ID specified"], isTruthy]
+        [() => new HttpStatusModel(404, "No ContractorRequest found with the ID specified"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
@@ -49,7 +50,7 @@ export default class ContractorRequestService {
   static delete(_id) {
     return Querier
       .append({ as: 'model', from: boundPromisedCallback('findByIdAndRemove', _id), where: [
-        [() => [404, "Not ContractorRequest with the ID specified"], isTruthy]
+        [() => new HttpStatusModel(404, "Not ContractorRequest found with the ID specified"), isTruthy]
       ]})
       .select(({ model }) => model)
   }
