@@ -11,8 +11,8 @@ angular.module('mainApp')
         });
     }
     
-    this.login = function (login) {        
-        $http({method:'POST', url:'http://localhost:3000/api/auth/login', data: login})
+    this.singin = function (user) {
+        $http({method:'POST', url:'http://localhost:3000/api/auth/login', data: user})
         .then(function (data) {
             $state.go('authenticated.requests', {});
         })
