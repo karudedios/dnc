@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose';
-import Request from '../request/index';
+import mongoose, { Schema } from 'mongoose';
+import Request from './Request';
 
 const NotificationSchema = new Schema({
     request: {
@@ -16,4 +16,4 @@ NotificationSchema.pre('save', function(next) {
     return this.request.save instanceof Function ? this.request.save(next) : next();
 });
 
-export default model("Notification", NotificationSchema)
+export default mongoose.model("Notification", NotificationSchema)

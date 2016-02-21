@@ -1,8 +1,8 @@
-import { Schema, model } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const MessageSchema = new Schema({
   roomId: String,
   content: Array
 }, { timestamps: true });
 
-export default model('Message',  MessageSchema);
+export default mongoose.model('Message',  MessageSchema);

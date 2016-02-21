@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongose';
-import User from '../user/index';
+import mongoose, { Schema } from 'mongoose';
+import User from './User';
 
 const RequestSchema = new Schema({
     client:  {
@@ -19,4 +19,4 @@ RequestSchema.pre('save', function(next) {
     return this.client.save instanceof Function ? this.client.save(next) : next();
 });
 
-export default model('Request', RequestSchema);
+export default mongoose.model('Request', RequestSchema);

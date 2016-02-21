@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose';
-import Request from '../request/index';
+import mongoose, { Schema } from 'mongoose';
+import Request from './Request';
 
 const ContractorRequestSchema = new Schema({
     contractor:  {
@@ -23,4 +23,4 @@ ContractorRequestSchema.pre('save', function(next) {
     return this.request.save instanceof Function ? this.request.save(next) : next();
 });
 
-export default model("ContractorRequest", ContractorRequestSchema);
+export default mongoose.model("ContractorRequest", ContractorRequestSchema);

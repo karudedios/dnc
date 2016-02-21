@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import service from '../services/AddressService';
+import service from '../services/Address.service';
 
 const handlePromise = (req, res, promise) => promise
   .then(res.json.bind(res))

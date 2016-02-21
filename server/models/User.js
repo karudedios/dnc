@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose';
-import { Address } from '../Address/index';
+import mongoose, { Schema } from 'mongoose';
+import { Address } from './Address';
 
 const phoneTransformer = {
   type: String,
@@ -46,4 +46,4 @@ UserSchema.pre('save', function() {
   return this.address.save instanceof Function ? this.address.save(next) : next();
 });
 
-export default model('User', UserSchema);
+export default mongoose.model('User', UserSchema);
