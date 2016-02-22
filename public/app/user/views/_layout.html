@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/app/styles/main.css">
+
+<div class="container">
+  <div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+    <li data-ng-class="{ 'active': current.indexOf(nav.route) > -1 }" data-ng-repeat="nav in authenticatedNav">
+      <a ui-sref="{{::nav.route}}" > {{nav.name}} <span ng-show="nav.name === 'Requests'" class="badge">4</span></a>
+      </li>
+    </ul>
+  </nav>
+  <h3 class="text-muted">DNC</h3>
+  </div>
+
+  <div class="container" ui-view></div>
+</div>
